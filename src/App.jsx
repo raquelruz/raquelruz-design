@@ -1,7 +1,12 @@
+// import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Navbar } from "./components/Navbar";
 
 export const App = () => {
-  return (
-    <h1>Raquel Ruz Design</h1>
-  )
-}
+	return (
+		<>
+			<Navbar />
+
+		</>
+	);
+};
