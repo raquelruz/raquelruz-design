@@ -31,7 +31,7 @@ export const Navbar = ({
 	const rightLinks = links.slice(middleIndex);
 
 	return (
-		<nav className={`w-full flex justify-center mt-5 ${className}`}>
+		<nav className={`w-full flex justify-center mt-5 font-landing ${className}`}>
 			<div className="flex items-center gap-6 bg-background px-6 py-3 rounded-full shadow-lg">
 				<div className="hidden md:flex gap-2">
 					{leftLinks.map((link) => {

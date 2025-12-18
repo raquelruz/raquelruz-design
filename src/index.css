@@ -14,7 +14,7 @@ body {
 
 @theme {
 	--font-landing: "Outfit", sans-serif;
-	--font-title: "Bebas Neue", serif;
+	--font-contrast: "Bebas Neue", serif;
 
 	--text-h1: 48px;
 	--text-h2: 30px;
