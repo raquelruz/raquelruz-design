@@ -1,5 +1,8 @@
 import { LiaStarSolid } from "react-icons/lia";
 import { CTAButtons } from "../components/CTAButtons";
+import { ServicesSection } from "../sections/ServicesSection";
+import profileImage from "../assets/profile/me.png";
+import backgroundHome from "../assets/images/background.png";
 
 export const HomePage = () => {
 	const heroClass = "text-4xl text-center font-landing";
@@ -20,33 +23,30 @@ export const HomePage = () => {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-20 font-landing">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-20 font-landing">
 					{/* Info */}
-					<div className="text-left flex flex-col gap-2 w-50">
+					<div className="text-left flex flex-col gap-2">
 						<p className="text-sm uppercase tracking-widest text-text-muted">Especialidad</p>
 						<p className="text-lg">Webs, aplicaciones y branding digital a medida</p>
 					</div>
 
-					<div className="relative flex justify-center items-end w-100 h-86">
-						<div className="absolute bottom-0 w-[400px] h-70 bg-secondary rounded-t-full" />
-						{/* Imagen */}
-						<div className="relative z-10 w-120 h-100 rounded-2xl overflow-hidden">
-							<img
-								src="../../public/images/profile/me.png"
-								alt="Raquel"
-								className="w-full h-full object-cover"
-							/>
+					{/* Imagen */}
+					<div className="relative flex justify-center items-end w-full md:w-[420px] h-[300px] md:h-[360px]">
+						<div className="absolute bottom-0 w-[260px] md:w-[400px] h-[160px] md:h-[220px] bg-secondary rounded-t-full" />
+
+						<div className="relative z-10 w-[200px] md:w-[300px] h-[260px] md:h-[360px] rounded-2xl overflow-hidden">
+							<img src={profileImage} alt="Raquel" className="w-full h-full object-cover" />
 						</div>
 
-						<div className="absolute bottom-2 z-20">
+						<div className="hidden md:block absolute bottom-2 z-20">
 							<CTAButtons
 								primaryHref="https://www.linkedin.com/in/raquel-ruiz-lopez/"
-								secondaryHref="mailto:raquel@email.com"
+								secondaryHref="mailto:raquelruizlopezcepero@gmail.com"
 							/>
 						</div>
 					</div>
 
-					{/* Experience */}
+					{/* Experiencia */}
 					<div className="flex flex-col items-center gap-4 justify-center md:justify-end">
 						<div className="flex gap-1 text-secondary">
 							{Array.from({ length: 5 }).map((_, index) => (
@@ -58,6 +58,18 @@ export const HomePage = () => {
 							<p className="text-text-muted leading-tight">de experiencia</p>
 						</div>
 					</div>
+				</div>
+			</div>
+
+			<div className="relative py-4 px-6 md:px-14 lg:px-20 bg-background font-landing text-text overflow-hidden rounded-[50px]">
+				<div
+					className="absolute inset-0 bg-no-repeat bg-center bg-cover opacity-30"
+					style={{ backgroundImage: `url(${backgroundHome})` }}
+				/>
+				<div className="absolute inset-0" />
+
+				<div className="relative z-10">
+					<ServicesSection />
 				</div>
 			</div>
 		</section>
