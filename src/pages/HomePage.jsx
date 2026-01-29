@@ -3,6 +3,7 @@ import { CTAButtons } from "../components/CTAButtons";
 import { ServicesSection } from "../sections/ServicesSection";
 import profileImage from "../assets/profile/me.png";
 import backgroundHome from "../assets/images/background.png";
+import { SelectedWorkSection } from "../sections/SelectedWorkSection";
 
 export const HomePage = () => {
 	const heroClass = "text-4xl text-center font-landing";
@@ -27,7 +28,7 @@ export const HomePage = () => {
 					{/* Info */}
 					<div className="text-left flex flex-col gap-2">
 						<p className="text-sm uppercase tracking-widest text-text-muted">Especialidad</p>
-						<p className="text-lg">Webs, aplicaciones y branding digital a medida</p>
+						<p className="text-lg">Diseño y desarrollo productos digitales que se ven increíbles y funcionan de verdad</p>
 					</div>
 
 					{/* Imagen */}
@@ -71,6 +72,10 @@ export const HomePage = () => {
 				<div className="relative z-10">
 					<ServicesSection />
 				</div>
+			</div>
+
+			<div>
+				<SelectedWorkSection />
 			</div>
 		</section>
 	);

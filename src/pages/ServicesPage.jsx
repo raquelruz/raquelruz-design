@@ -1,4 +1,5 @@
 import { ServiceCard } from "../components/ServiceCard";
+import { SERVICES } from "../utils/servicesData"
 
 export const ServicesPage = () => {
 	return (
@@ -14,22 +15,20 @@ export const ServicesPage = () => {
 				</p>
 			</div>
 
-			{/* Cards */}
-			<div className="flex gap-8 overflow-x-auto pb-6">
-				<div className="snap-start">
-				<ServiceCard
-					title="UI / UX Design"
-					image="/images/services/uiux.png"
-				/></div>
-				<ServiceCard
-					title="Web Design"
-					image="/images/services/web.png"
-				/>
-				<ServiceCard
-					title="Landing Page"
-					image="/images/services/landing.png"
-				/>
+			<div
+				className="
+					flex gap-6 overflow-x-auto pb-6
+					snap-x snap-mandatory scroll-smooth
+					[-webkit-overflow-scrolling:touch]
+				"
+			>
+				{SERVICES.map((service) => (
+					<div key={service.title} className="snap-start shrink-0">
+						<ServiceCard {...service} />
+					</div>
+				))}
 			</div>
+
 		</section>
 	);
 };
