@@ -33,7 +33,7 @@ export const HomePage = () => {
 
 					{/* Imagen */}
 					<div className="relative flex justify-center items-end w-full md:w-[420px] h-[300px] md:h-[360px]">
-						<div className="absolute bottom-0 w-[260px] md:w-[400px] h-[160px] md:h-[220px] bg-secondary rounded-t-full" />
+						<div className="absolute bottom-0  bg-secondary rounded-t-full" />
 
 						<div className="relative z-10 w-[200px] md:w-[300px] h-[260px] md:h-[360px] rounded-2xl overflow-hidden">
 							<img src={profileImage} alt="Raquel" className="w-full h-full object-cover" />
@@ -54,7 +54,7 @@ export const HomePage = () => {
 								<LiaStarSolid key={index} size={20} />
 							))}
 						</div>
-						<div className="text-left">
+						<div className="text-left pb-12">
 							<p className="text-2xl font-semibold">5 años</p>
 							<p className="text-text-muted leading-tight">de experiencia</p>
 						</div>
