@@ -14,9 +14,7 @@ export const ServiceCard = ({ title, image, description, items = [], cta, index 
 		>
 			<div className="flex items-center justify-between">
 				<h3 className="text-2xl font-medium text-text">{title}</h3>
-				<span className="font-title text-sm italic text-secondary">
-					{String(index + 1).padStart(2, "0")}
-				</span>
+				<span className="font-title text-sm italic text-secondary">{String(index + 1).padStart(2, "0")}</span>
 			</div>
 
 			<div className="relative aspect-4/3 w-full overflow-hidden rounded-xl bg-background-soft flex items-center justify-center">
@@ -24,7 +22,7 @@ export const ServiceCard = ({ title, image, description, items = [], cta, index 
 				<img
 					src={image}
 					alt={title}
-					className="relative z-10 max-w-[70%] max-h-[70%] object-contain transition duration-500 group-hover:scale-110"
+					className="relative z-10 object-contain transition duration-500 group-hover:scale-110"
 				/>
 			</div>
 

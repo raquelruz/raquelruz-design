@@ -1,3 +1,6 @@
+import webDevelopmentCover from "../assets/images/services/web-development.png";
+
+
 export const SERVICES = [
 	{
 		title: "UI / UX Design",
@@ -12,7 +15,7 @@ export const SERVICES = [
 	},
 	{
 		title: "Desarrollo Web",
-		image: "/images/services/woodline-responsive.png",
+		image: webDevelopmentCover,
 		description:
 			"Desarrollo web a medida, con código limpio y escalable, alineado con el diseño y los objetivos del proyecto.",
 		items: [
