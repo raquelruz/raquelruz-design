@@ -46,7 +46,7 @@ export const SelectedWorkSection = () => {
 								"
 							>
 								{/* Cover */}
-								<div className="relative h-60 w-full overflow-hidden bg-gradient-to-br from-background via-white/20 to-background">
+								<div className="relative h-60 w-full overflow-hidden bg-linear-to-br from-background via-white/20 to-background">
 									{project.assets?.coverImage && (
 										<img
 											src={project.assets.coverImage}

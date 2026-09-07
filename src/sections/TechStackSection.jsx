@@ -124,8 +124,8 @@ export const TechStackSection = () => {
 					<span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
 						Stack
 					</span>
-					<h2 className="font-title text-text mt-4 text-3xl md:text-4xl">Herramientas con las que trabajo</h2>
-					<p className="mt-4 text-text-muted">
+					<h2 className="font-title text-text mt-4 text-3xl md:text-5xl">Herramientas con las que trabajo</h2>
+					<p className="mt-4 text-text-muted text-lg">
 						Un stack pensado para construir productos rápidos, mantenibles y cuidados de principio a fin.
 					</p>
 				</div>
