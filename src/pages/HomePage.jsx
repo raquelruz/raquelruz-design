@@ -9,7 +9,7 @@ import { TechStackSection } from "../sections/TechStackSection";
 export const HomePage = () => {
 	return (
 		<section className="font-landing">
-			<div className="max-w-7xl mx-auto px-6 md:px-14 lg:px-20 pt-16 pb-24 md:pt-24 md:pb-32">
+			<div className="w-full px-6 md:px-14 lg:px-20 pt-16 pb-24 md:pt-24 md:pb-32">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
 					<div className="lg:col-span-6 flex flex-col gap-8">
 						<span className="inline-flex w-fit items-center gap-2 rounded-full border border-secondary/30 px-4 py-1.5 text-sm text-secondary">
@@ -20,7 +20,7 @@ export const HomePage = () => {
 							CONSTRUYENDO EXPERIENCIAS <span className="text-secondary italic">digitales</span>
 						</h1>
 
-						<p className="max-w-full md:text-lg text-text/70">
+						<p className="max-w-full md:text-lg text-text/70 text-lg">
 							Desarrolladora Full Stack especializada en React, TypeScript y Node.js, combinando
 							ingeniería sólida con criterio visual.
 						</p>
@@ -48,24 +48,20 @@ export const HomePage = () => {
 				</div>
 
 				{/* ABOUT */}
-				<div id="about" className="max-w-full mx-auto mt-16 md:px-14 md:pb-32 lg:px-0">
+				<div id="about" className="w-full mt-16 md:px-14 md:pb-32 lg:px-0">
 					<AboutSection />
 				</div>
 
 				<div>
 					<TechStackSection />
 				</div>
-				
 			</div>
+
 			{/* SERVICIOS */}
 			<div
 				id="servicios"
-				className="relative mx-6 overflow-hidden rounded-[40px] bg-background px-6 py-16 text-text md:mx-14 md:px-14 md:py-24 lg:mx-20 lg:px-20"
+				className="relative w-full overflow-hidden px-6 py-16 text-text md:px-14 md:py-24 lg:px-20"
 			>
-				<div
-					className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-					style={{ backgroundImage: `url(${backgroundHome})` }}
-				/>
 				<div className="relative z-10">
 					<ServicesSection />
 				</div>

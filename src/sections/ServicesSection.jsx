@@ -19,26 +19,38 @@ export const ServicesSection = () => {
 
 	return (
 		<section className="py-12 px-4 font-landing text-text">
+			<style>{`
+				.services-scroll {
+					-webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 92%, transparent);
+					mask-image: linear-gradient(to right, transparent, black 4%, black 92%, transparent);
+				}
+				@media (min-width: 768px) {
+					.services-scroll {
+						-webkit-mask-image: linear-gradient(to right, black, black 88%, transparent);
+						mask-image: linear-gradient(to right, black, black 88%, transparent);
+					}
+				}
+			`}</style>
+
 			<div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14 gap-6">
 				<div>
-					<h2 className="text-3xl font-semibold">
-						Mis <span className="text-secondary">Servicios</span>
+					<span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+						Servicios
+					</span>
+					<h2 className="font-title text-text mt-4 text-3xl md:text-5xl">
+						Cómo puedo ayudarte
 					</h2>
-
-					<p className="text-lg text-text-muted">
-						Diseño y desarrollo para que tu web deje de ser solo bonita y empiece a cumplir un objetivo.
-					</p>
-
-					<p className="mt-3 text-sm text-text">
-						Haz clic en cada servicio para ver cómo lo aplico en proyectos reales.
+					<p className="mt-4 max-w-full text-text-muted text-lg">
+						Diseño y desarrollo para que tu web deje de ser solo bonita y empiece a
+						cumplir un objetivo.
 					</p>
 				</div>
 
 				<a
 					href="/services"
-					className="inline-flex items-center justify-center rounded-2xl px-6 py-3 border border-border bg-background hover:bg-background-soft transition"
+					className="inline-flex w-fit items-center gap-2 rounded-full border border-text/20 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-text/40"
 				>
-					Ver todos
+					Ver todos ↗
 				</a>
 			</div>
 
@@ -53,14 +65,14 @@ export const ServicesSection = () => {
 
 				<div
 					ref={scrollRef}
-					className="flex gap-4 md:gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth no-scrollbar px-2 md:px-0 scroll-px-2 md:scroll-px-0"
+					className="services-scroll flex gap-4 md:gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth no-scrollbar px-2 md:px-0 scroll-px-2 md:scroll-px-0"
 				>
-					{featuredServices.map((service) => (
+					{featuredServices.map((service, index) => (
 						<div
 							key={service.title}
 							className="snap-start shrink-0 basis-full sm:basis-[85%] md:basis-[60%] lg:basis-[40%]"
 						>
-							<ServiceCard {...service} />
+							<ServiceCard {...service} index={index} />
 						</div>
 					))}
 				</div>
