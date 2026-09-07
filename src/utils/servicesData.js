@@ -1,7 +1,7 @@
 export const SERVICES = [
 	{
 		title: "UI / UX Design",
-		image: "/images/services/uiux.png",
+		image: "../assets/images/services/website.png",
 		description:
 			"Diseño de interfaces claras y funcionales, pensadas para que el usuario entienda, navegue y actúe sin fricción.",
 		items: [
@@ -14,7 +14,7 @@ export const SERVICES = [
 	},
 	{
 		title: "Desarrollo Web",
-		image: "/images/services/website.png",
+		image: "../assets/images/services/woodline-responsive.png",
 		description:
 			"Desarrollo web a medida, con código limpio y escalable, alineado con el diseño y los objetivos del proyecto.",
 		items: [
