@@ -3,6 +3,8 @@ import { ServicesSection } from "../sections/ServicesSection";
 import profileImage from "../assets/profile/raquelruz-portfolio.png";
 import backgroundHome from "../assets/images/background.png";
 import { SelectedWorkSection } from "../sections/SelectedWorkSection";
+import { AboutSection } from "../sections/AboutSection";
+import { TechStackSection } from "../sections/TechStackSection";
 
 export const HomePage = () => {
 	return (
@@ -44,8 +46,17 @@ export const HomePage = () => {
 						</div>
 					</div>
 				</div>
-			</div>
 
+				{/* ABOUT */}
+				<div id="about" className="max-w-full mx-auto mt-16 md:px-14 md:pb-32 lg:px-0">
+					<AboutSection />
+				</div>
+
+				<div>
+					<TechStackSection />
+				</div>
+				
+			</div>
 			{/* SERVICIOS */}
 			<div
 				id="servicios"
