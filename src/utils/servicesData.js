@@ -1,10 +1,12 @@
 import webDevelopmentCover from "../assets/images/services/web-development.png";
-
+import uiUxDesign from "../assets/images/services/uiux-design.png";
+import landingPage from "../assets/images/services/landing-page.png";
+import branding from "../assets/images/services/branding.png";
 
 export const SERVICES = [
 	{
 		title: "UI / UX Design",
-		image: "/images/services/website.png",
+		image: uiUxDesign,
 		description:
 			"Diseño de interfaces claras y funcionales, pensadas para que el usuario entienda, navegue y actúe sin fricción.",
 		items: [
@@ -26,7 +28,7 @@ export const SERVICES = [
 	},
 	{
 		title: "Landing Pages",
-		image: "/images/services/landing.png",
+		image: landingPage,
 		description:
 			"Páginas diseñadas para guiar al usuario a una acción concreta: contactar, registrarse o vender.",
 		items: [
@@ -37,7 +39,7 @@ export const SERVICES = [
 	},
 	{
 		title: "Branding Digital",
-		image: "/images/services/branding.png",
+		image: branding,
 		description:
 			"Construcción de una identidad visual coherente que conecte tu marca en todos los puntos digitales.",
 		items: [
