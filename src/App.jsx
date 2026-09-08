@@ -7,7 +7,7 @@ import { ProjectsPage } from "./pages/ProjectsPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { BlogPage } from "./pages/BlogPage";
-import { ProjectDetail } from "./components/ProjectDetail";
+import { ProjectDetail } from "./components/Projects/ProjectDetail";
 
 export const App = () => {
 	return (

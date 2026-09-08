@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { HiArrowUpRight, HiArrowLeft, HiArrowRight } from "react-icons/hi2";
-import { PROJECTS } from "../utils/projectsData";
-import { ImageCarousel } from "./ImageCarousel";
+import { PROJECTS } from "../../utils/projectsData";
+import { ImageCarousel } from "../ImageCarousel";
 
 export const ProjectDetail = () => {
 	const { slug } = useParams();
@@ -30,6 +30,7 @@ export const ProjectDetail = () => {
 		year,
 		type,
 		description,
+		story = [],
 		objective,
 		services = [],
 		techStack = [],
@@ -39,6 +40,8 @@ export const ProjectDetail = () => {
 		externalLink,
 		assets,
 	} = project;
+
+	const hasStory = story.length > 0;
 
 	return (
 		<section className="font-landing text-text px-6 pt-8 pb-24 md:px-14 lg:px-20">
@@ -121,6 +124,16 @@ export const ProjectDetail = () => {
 							alt={`${title} screenshot`}
 							className="aspect-4/5 md:aspect-3/4 w-full rounded-3xl"
 						/>
+					)}
+
+					{hasStory && (
+						<div className="mt-14 flex flex-col gap-5">
+							{story.map((paragraph) => (
+								<p key={paragraph} className="text-text-muted leading-relaxed text-lg">
+									{paragraph}
+								</p>
+							))}
+						</div>
 					)}
 
 					{objective && (
