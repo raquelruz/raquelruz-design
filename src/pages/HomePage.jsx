@@ -1,14 +1,14 @@
 import { CTAButtons } from "../components/CTAButtons";
 import { ServicesSection } from "../sections/ServicesSection";
 import profileImage from "../assets/profile/raquelruz-portfolio.png";
-import backgroundHome from "../assets/images/background.png";
 import { SelectedWorkSection } from "../sections/SelectedWorkSection";
 import { AboutSection } from "../sections/AboutSection";
-import { TechStackSection } from "../sections/TechStackSection";
+import { TechStackSection } from "../sections/TechStackSection"
+import { ContactSection } from "../sections/ContactSection";
 
 export const HomePage = () => {
 	return (
-		<section className="font-landing">
+		<main className="font-landing">
 			<div className="w-full px-6 md:px-14 lg:px-20 pt-16 pb-24 md:pt-24 md:pb-32">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
 					<div className="lg:col-span-6 flex flex-col gap-8">
@@ -26,7 +26,6 @@ export const HomePage = () => {
 						</p>
 					</div>
 
-					{/* Imagen */}
 					<div className="lg:col-span-6 flex flex-col items-center">
 						<div className="relative flex justify-center">
 							<div className="absolute -z-10 bottom-0 h-3/4 w-3/4 rounded-full bg-secondary/20" />
@@ -47,30 +46,32 @@ export const HomePage = () => {
 					</div>
 				</div>
 
-				{/* ABOUT */}
-				<div id="about" className="w-full mt-16 md:px-14 md:pb-32 lg:px-0">
+				<section id="about" aria-label="Sobre mí" className="w-full mt-20 md:mt-28">
 					<AboutSection />
-				</div>
+				</section>
 
-				<div>
+				<div className="mt-20 md:mt-28">
 					<TechStackSection />
 				</div>
 			</div>
 
-			{/* SERVICIOS */}
-			<div
+			<section
 				id="servicios"
+				aria-label="Servicios"
 				className="relative w-full overflow-hidden px-6 py-16 text-text md:px-14 md:py-24 lg:px-20"
 			>
 				<div className="relative z-10">
 					<ServicesSection />
 				</div>
-			</div>
+			</section>
 
-			{/* PROYECTOS */}
-			<div id="proyectos" className="pt-20 md:pt-28">
+			<section id="proyectos" aria-label="Proyectos" className="pt-20 md:pt-28">
 				<SelectedWorkSection />
-			</div>
-		</section>
+			</section>
+
+			<section id="contacto" aria-label="Contacto">
+				<ContactSection />
+			</section>
+		</main>
 	);
 };

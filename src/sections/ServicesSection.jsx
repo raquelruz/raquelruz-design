@@ -1,95 +1,76 @@
 import { Link } from "react-router-dom";
 import { ServiceCard } from "../components/ServiceCard";
-import { useRef } from "react";
-import { HiArrowLeftCircle, HiArrowRightCircle } from "react-icons/hi2";
+import { HiArrowUpRight } from "react-icons/hi2";
 import { SERVICES } from "../utils/servicesData";
+import { useInView } from "../hooks/useInView";
 
 export const ServicesSection = () => {
-	const scrollRef = useRef(null);
+	const [ref, isInView] = useInView();
 
-	const featuredServices = SERVICES.slice(0, 4);
+	let revealClass = "translate-y-8 opacity-0";
+	if (isInView) {
+		revealClass = "translate-y-0 opacity-100";
+	}
 
-	const scroll = (direction) => {
-		if (!scrollRef.current) return;
-		const viewportWidth = scrollRef.current.clientWidth;
-		scrollRef.current.scrollBy({
-			left: direction === "left" ? -viewportWidth : viewportWidth,
-			behavior: "smooth",
-		});
-	};
+	const loopedServices = [...SERVICES, ...SERVICES];
 
 	return (
-		<section className="py-12 px-4 font-landing text-text">
+		<section
+			ref={ref}
+			className="relative overflow-hidden border-t border-border py-12 pt-10 font-landing text-text md:pt-16"
+		>
 			<style>{`
-				.services-scroll {
-					-webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 92%, transparent);
-					mask-image: linear-gradient(to right, transparent, black 4%, black 92%, transparent);
+				@keyframes services-marquee {
+					from { transform: translateX(0); }
+					to { transform: translateX(-50%); }
 				}
-				@media (min-width: 768px) {
-					.services-scroll {
-						-webkit-mask-image: linear-gradient(to right, black, black 88%, transparent);
-						mask-image: linear-gradient(to right, black, black 88%, transparent);
-					}
+				.services-marquee-track {
+					animation: services-marquee 40s linear infinite;
+				}
+				.services-marquee-track:hover {
+					animation-play-state: paused;
+				}
+				.services-marquee-mask {
+					-webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+					mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+				}
+				@media (prefers-reduced-motion: reduce) {
+					.services-marquee-track { animation: none; }
 				}
 			`}</style>
 
-			<div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14 gap-6">
-				<div>
-					<span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
-						Servicios
-					</span>
-					<h2 className="font-title text-text mt-4 text-3xl md:text-5xl">
-						Cómo puedo ayudarte
-					</h2>
-					<p className="mt-4 max-w-full text-text-muted text-lg">
-						Diseño y desarrollo para que tu web deje de ser solo bonita y empiece a
-						cumplir un objetivo.
-					</p>
+			<div className={`relative transition-all duration-1000 ease-out ${revealClass}`}>
+				<div className="px-4 flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14 gap-6">
+					<div>
+						<span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+							Servicios
+						</span>
+						<h2 className="font-title font-light text-text mt-4 text-3xl leading-tight md:text-6xl">
+							Cómo puedo <span className="text-secondary/40">ayudarte.</span>
+						</h2>
+					</div>
+
+					<Link
+						to="/services"
+						className="group inline-flex w-fit items-center gap-2 rounded-full border border-text/20 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-secondary/40 hover:text-secondary"
+					>
+						Ver todos
+						<HiArrowUpRight
+							size={16}
+							className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+						/>
+					</Link>
 				</div>
 
-				<Link
-					href="/services"
-					className="inline-flex w-fit items-center gap-2 rounded-full border border-text/20 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-text/40"
-				>
-					Ver todos ↗
-				</Link>
-			</div>
-
-			<div className="relative">
-				<button
-					onClick={() => scroll("left")}
-					className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 text-secondary transition"
-					aria-label="Scroll left"
-				>
-					<HiArrowLeftCircle size={36} />
-				</button>
-
-				<div
-					ref={scrollRef}
-					className="services-scroll flex gap-4 md:gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth no-scrollbar px-2 md:px-0 scroll-px-2 md:scroll-px-0"
-				>
-					{featuredServices.map((service, index) => (
-						<div
-							key={service.title}
-							className="snap-start shrink-0 basis-full sm:basis-[85%] md:basis-[60%] lg:basis-[40%]"
-						>
-							<ServiceCard {...service} index={index} />
-						</div>
-					))}
+				<div className="services-marquee-mask overflow-hidden">
+					<div className="services-marquee-track flex w-max gap-6 md:gap-8">
+						{loopedServices.map((service, index) => (
+							<div key={`${service.title}-${index}`} className="w-[85vw] shrink-0 sm:w-96 md:w-104">
+								<ServiceCard {...service} index={index % SERVICES.length} />
+							</div>
+						))}
+					</div>
 				</div>
-
-				<button
-					onClick={() => scroll("right")}
-					className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 text-secondary hover:scale-110 transition"
-					aria-label="Scroll right"
-				>
-					<HiArrowRightCircle size={36} />
-				</button>
-			</div>
-
-			<div className="mt-2 flex md:hidden items-center gap-2 text-sm text-text-muted">
-				<span>Desliza</span>
-				<span className="animate-pulse">→</span>
 			</div>
 		</section>
 	);
