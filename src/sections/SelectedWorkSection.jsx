@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PROJECTS } from "../utils/projectsData";
 import { ProjectCard } from "../components/ProjectCard";
 
@@ -19,12 +20,12 @@ export const SelectedWorkSection = () => {
 						</p>
 					</div>
 
-					<a
-						href="/projects"
+					<Link
+						to="/projects"
 						className="inline-flex w-fit items-center gap-2 rounded-full border border-text/20 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-text/40"
 					>
 						Ver todos ↗
-					</a>
+					</Link>
 				</div>
 
 				<div className="flex flex-col gap-16 md:gap-24">

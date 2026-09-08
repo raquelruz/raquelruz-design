@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const ProjectCard = ({
 	title,
 	subtitle,
@@ -10,17 +12,11 @@ export const ProjectCard = ({
 	assets,
 	index = 0,
 }) => {
-	const href = externalLink ?? `/projects/${slug}`;
-	const isExternal = Boolean(externalLink);
 	const isReversed = index % 2 === 1;
+	const hasCaseStudy = Boolean(slug);
 
 	return (
-		<a
-			href={href}
-			target={isExternal ? "_blank" : undefined}
-			rel={isExternal ? "noreferrer" : undefined}
-			className="group grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16"
-		>
+		<div className="group grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
 			<div
 				className={`relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-background-soft ${
 					isReversed ? "md:order-2" : ""
@@ -67,11 +63,30 @@ export const ProjectCard = ({
 					</div>
 				)}
 
-				<div className="mt-6 inline-flex items-center gap-2 font-medium text-secondary">
-					<span>{isExternal ? "Ver demo" : "Ver proyecto"}</span>
-					<span className="transition-transform group-hover:translate-x-1">→</span>
+				<div className="mt-6 flex flex-wrap items-center gap-4">
+					{hasCaseStudy && (
+						<Link
+							to={`/projects/${slug}`}
+							className="inline-flex items-center gap-2 font-medium bg-secondary p-2 px-6 rounded-full text-white transition group-hover:translate-x-0.5"
+						>
+							Ver case study
+							<span className="transition-transform group-hover:translate-x-1">→</span>
+						</Link>
+					)}
+
+					{externalLink && (
+						
+							<a href={externalLink}
+							target="_blank"
+							rel="noreferrer"
+							className="inline-flex items-center gap-2 text-sm text-text-muted transition hover:text-secondary"
+						>
+							Ver demo
+							<span>↗</span>
+						</a>
+					)}
 				</div>
 			</div>
-		</a>
+		</div>
 	);
 };
