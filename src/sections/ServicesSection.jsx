@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ServiceCard } from "../components/ServiceCard";
 import { useRef } from "react";
 import { HiArrowLeftCircle, HiArrowRightCircle } from "react-icons/hi2";
@@ -46,12 +47,12 @@ export const ServicesSection = () => {
 					</p>
 				</div>
 
-				<a
+				<Link
 					href="/services"
 					className="inline-flex w-fit items-center gap-2 rounded-full border border-text/20 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-text/40"
 				>
 					Ver todos ↗
-				</a>
+				</Link>
 			</div>
 
 			<div className="relative">
