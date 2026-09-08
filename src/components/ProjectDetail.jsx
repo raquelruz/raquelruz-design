@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { HiArrowUpRight, HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import { PROJECTS } from "../utils/projectsData";
 import { ImageCarousel } from "./ImageCarousel";
 
@@ -16,7 +17,8 @@ export const ProjectDetail = () => {
 					to="/projects"
 					className="mt-8 inline-flex items-center gap-2 bg-secondary text-white rounded-full border border-text/20 px-6 py-3 text-sm font-medium transition-colors hover:border-text/40"
 				>
-					← Volver a proyectos
+					<HiArrowLeft size={16} />
+					Volver a proyectos
 				</Link>
 			</section>
 		);
@@ -42,9 +44,13 @@ export const ProjectDetail = () => {
 		<section className="font-landing text-text px-6 pt-8 pb-24 md:px-14 lg:px-20">
 			<Link
 				to="/projects"
-				className="inline-flex items-center gap-2 text-sm text-text-muted transition hover:text-secondary"
+				className="group/back inline-flex items-center gap-2 text-sm text-text-muted transition hover:text-secondary"
 			>
-				← Volver a proyectos
+				<HiArrowLeft
+					size={14}
+					className="transition-transform group-hover/back:-translate-x-1"
+				/>
+				Volver a proyectos
 			</Link>
 
 			<div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8 lg:gap-16">
@@ -93,14 +99,17 @@ export const ProjectDetail = () => {
 					)}
 
 					{externalLink && (
-						<a
-							href={externalLink}
+						
+						<a	href={externalLink}
 							target="_blank"
 							rel="noreferrer"
-							className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-sm font-medium text-background transition hover:bg-secondary"
+							className="group/demo mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-sm font-medium text-background transition hover:bg-secondary/90"
 						>
 							Ver demo en vivo
-							<span>↗</span>
+							<HiArrowUpRight
+								size={16}
+								className="transition-transform group-hover/demo:translate-x-0.5 group-hover/demo:-translate-y-0.5"
+							/>
 						</a>
 					)}
 				</aside>
@@ -167,7 +176,6 @@ export const ProjectDetail = () => {
 						</div>
 					)}
 
-					{/* Navegación al siguiente proyecto */}
 					{PROJECTS[index + 1] && (
 						<Link
 							to={`/projects/${PROJECTS[index + 1].slug}`}
@@ -181,9 +189,10 @@ export const ProjectDetail = () => {
 									{PROJECTS[index + 1].title}
 								</p>
 							</div>
-							<span className="text-2xl text-secondary transition-transform group-hover:translate-x-2">
-								→
-							</span>
+							<HiArrowRight
+								size={24}
+								className="text-secondary transition-transform group-hover:translate-x-2"
+							/>
 						</Link>
 					)}
 				</div>

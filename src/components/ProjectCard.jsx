@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HiArrowUpRight, HiArrowRight } from "react-icons/hi2";
 
 export const ProjectCard = ({
 	title,
@@ -48,7 +49,7 @@ export const ProjectCard = ({
 				</span>
 				<p className="font-title text-text mt-2 text-2xl md:text-5xl">{title}</p>
 				<p className="mt-2 text-sm text-secondary">{subtitle.toUpperCase()}</p>
-				<p className="mt-4 max-w-full text-text-muted leading-relaxed text-lg">{description}</p>
+				<p className="mt-4 text-text-muted leading-relaxed text-lg">{description}</p>
 
 				{techStack.length > 0 && (
 					<div className="mt-4 flex flex-wrap gap-2">
@@ -67,22 +68,28 @@ export const ProjectCard = ({
 					{hasCaseStudy && (
 						<Link
 							to={`/projects/${slug}`}
-							className="inline-flex items-center gap-2 font-medium bg-secondary p-2 px-6 rounded-full text-white transition group-hover:translate-x-0.5"
+							className="group/cta inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3 font-medium text-white transition hover:bg-secondary/90"
 						>
 							Ver case study
-							<span className="transition-transform group-hover:translate-x-1">→</span>
+							<HiArrowRight
+								size={16}
+								className="transition-transform group-hover/cta:translate-x-1"
+							/>
 						</Link>
 					)}
 
 					{externalLink && (
 						
-							<a href={externalLink}
+						<a	href={externalLink}
 							target="_blank"
 							rel="noreferrer"
-							className="inline-flex items-center gap-2 text-sm text-text-muted transition hover:text-secondary"
+							className="group/demo inline-flex items-center gap-2 text-sm text-text-muted transition hover:text-secondary"
 						>
 							Ver demo
-							<span>↗</span>
+							<HiArrowUpRight
+								size={14}
+								className="transition-transform group-hover/demo:translate-x-0.5 group-hover/demo:-translate-y-0.5"
+							/>
 						</a>
 					)}
 				</div>

@@ -14,6 +14,7 @@ import {
 	SiCanva,
 	SiCloudinary,
 } from "react-icons/si";
+import { useInView } from "../hooks/useInView";
 
 const rings = [
 	{
@@ -62,6 +63,12 @@ const rings = [
 	},
 ];
 
+const categories = [
+	{ label: "Frontend", techs: "React, TypeScript, JavaScript, Tailwind CSS" },
+	{ label: "Backend", techs: "Node.js, Express, MongoDB" },
+	{ label: "Herramientas", techs: "Vite, Git, GitHub, Figma, Notion, Canva, Cloudinary" },
+];
+
 const spinStyle = (duration, reverse) => ({
 	animation: `orbit-spin ${duration}s linear infinite`,
 	animationDirection: reverse ? "reverse" : "normal",
@@ -107,8 +114,15 @@ const OrbitRing = ({ radius, duration, reverse, size, iconSize, items }) => (
 );
 
 export const TechStackSection = () => {
+	const [ref, isInView] = useInView();
+
+	let revealClass = "translate-y-8 opacity-0";
+	if (isInView) {
+		revealClass = "translate-y-0 opacity-100";
+	}
+
 	return (
-		<div className="border-t border-border pt-10 md:pt-16">
+		<div ref={ref} className="relative overflow-hidden border-t border-border pt-10 md:pt-16">
 			<style>{`
 				@keyframes orbit-spin {
 					from { transform: rotate(0deg); }
@@ -119,21 +133,40 @@ export const TechStackSection = () => {
 				}
 			`}</style>
 
-			<div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-8">
-				<div>
-					<span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
-						Stack
-					</span>
-					<h2 className="font-title text-text mt-4 text-3xl md:text-5xl">Herramientas con las que trabajo</h2>
-					<p className="mt-4 text-text-muted text-lg">
-						Un stack pensado para construir productos rápidos, mantenibles y cuidados de principio a fin.
-					</p>
-				</div>
+			<div className={`relative transition-all duration-1000 ease-out ${revealClass}`}>
+				<span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+					Stack
+				</span>
 
-				<div className="relative mx-auto h-85 w-85">
-					{rings.map((ring) => (
-						<OrbitRing key={ring.radius} {...ring} />
-					))}
+				<h2 className="font-title text-text font-light mt-4 max-w-5xl text-3xl leading-tight md:text-5xl">
+					Un stack pensado para construir productos rápidos, mantenibles y cuidados de{" "}
+					<span className="text-secondary">principio a fin.</span>
+				</h2>
+
+				<div className="mt-14 grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-8">
+					<div className="md:col-span-7 order-2 md:order-1 flex flex-col divide-y divide-border border-t border-border">
+						{categories.map((category, i) => (
+							<div
+								key={category.label}
+								className="group flex flex-col gap-2 py-6 transition sm:flex-row sm:items-baseline sm:gap-8"
+							>
+								<span className="font-title text-lg italic text-secondary shrink-0 sm:w-32 transition-transform group-hover:translate-x-1">
+									{String(i + 1).padStart(2, "0")} — {category.label}
+								</span>
+								<span className="text-text-muted leading-relaxed transition-transform group-hover:translate-x-1">
+									{category.techs}
+								</span>
+							</div>
+						))}
+					</div>
+
+					<div className="md:col-span-5 order-1 md:order-2 flex justify-center">
+						<div className="relative h-85 w-85">
+							{rings.map((ring) => (
+								<OrbitRing key={ring.radius} {...ring} />
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
