@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import { PROJECTS } from "../utils/projectsData";
-import { ProjectCard } from "../components/ProjectCard";
+import { ProjectListItem } from "../components/Projects/ProjectListItem";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { useInView } from "../hooks/useInView";
 
 export const SelectedWorkSection = () => {
-	const projects = PROJECTS;
+	const projects = PROJECTS.filter((project) => project.featuredHome);
 	const [ref, isInView] = useInView();
 
 	let revealClass = "translate-y-8 opacity-0";
 	if (isInView) {
 		revealClass = "translate-y-0 opacity-100";
 	}
+
+	const hasProjects = projects.length > 0;
 
 	return (
 		<section
@@ -45,13 +47,15 @@ export const SelectedWorkSection = () => {
 					</Link>
 				</div>
 
-				<div className="flex flex-col gap-16 md:gap-24">
-					{projects.map((project, index) => (
-						<ProjectCard key={project.id} {...project} index={index} />
-					))}
-				</div>
+				{hasProjects && (
+					<div className="flex flex-col">
+						{projects.map((project, index) => (
+							<ProjectListItem key={project.id} project={project} index={index} />
+						))}
+					</div>
+				)}
 
-				{projects.length === 0 && (
+				{!hasProjects && (
 					<p className="mt-6 text-sm text-text-muted">Proyectos en preparación.</p>
 				)}
 			</div>

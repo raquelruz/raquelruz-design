@@ -1,20 +1,14 @@
 import { Link } from "react-router-dom";
 import { HiArrowUpRight, HiArrowRight } from "react-icons/hi2";
 
-export const ProjectCard = ({
-	title,
-	subtitle,
-	year,
-	type,
-	description,
-	techStack = [],
-	externalLink,
-	slug,
-	assets,
-	index = 0,
-}) => {
+export const ProjectCard = ({ project, index = 0 }) => {
+	const { title, subtitle, year, type, description, techStack = [], externalLink, slug, assets } = project;
+
 	const isReversed = index % 2 === 1;
 	const hasCaseStudy = Boolean(slug);
+	const isPractice = type === "practice";
+	const hasExternalLink = Boolean(externalLink);
+	const hasTechStack = techStack.length > 0;
 
 	return (
 		<div className="group grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
@@ -32,7 +26,7 @@ export const ProjectCard = ({
 					/>
 				)}
 
-				{type === "practice" && (
+				{isPractice && (
 					<span className="absolute top-4 left-4 rounded-full border border-border bg-background/80 px-3 py-1 text-xs text-text-muted">
 						Práctica
 					</span>
@@ -48,10 +42,10 @@ export const ProjectCard = ({
 					{String(index + 1).padStart(2, "0")}
 				</span>
 				<p className="font-title text-text mt-2 text-2xl md:text-5xl">{title}</p>
-				<p className="mt-2 text-sm text-secondary">{subtitle.toUpperCase()}</p>
+				<p className="mt-2 text-sm text-secondary">{subtitle?.toUpperCase()}</p>
 				<p className="mt-4 text-text-muted leading-relaxed text-lg">{description}</p>
 
-				{techStack.length > 0 && (
+				{hasTechStack && (
 					<div className="mt-4 flex flex-wrap gap-2">
 						{techStack.map((tech) => (
 							<span
@@ -78,7 +72,7 @@ export const ProjectCard = ({
 						</Link>
 					)}
 
-					{externalLink && (
+					{hasExternalLink && (
 						
 						<a	href={externalLink}
 							target="_blank"
