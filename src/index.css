@@ -6,9 +6,17 @@
 
 body {
 	margin: 0;
-	font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-	transition: background-color 0.4s, color 0.4s;
-	background-color: #F9F4ED;
+	font-family:
+		ui-sans-serif,
+		system-ui,
+		-apple-system,
+		"Segoe UI",
+		Roboto,
+		Arial;
+	transition:
+		background-color 0.4s,
+		color 0.4s;
+	background-color: #f9f4ed;
 	color: var(--color-text);
 }
 
@@ -40,23 +48,39 @@ body {
 	--spacing-3xl: 90px;
 
 	/* 🌞 Light mode */
-	--color-background: #FFFFFF;
-	--color-background-soft: #F8F3EC;
+	--color-background: #ffffff;
+	--color-background-soft: #f8f3ec;
 	--color-background-dark: #d8cfc4;
 
 	--color-text: #4a4a4a;
-	--color-text-ultralight: #FFFFFF;
-	--color-text-light: #F8F3EC;
+	--color-text-ultralight: #ffffff;
+	--color-text-light: #f8f3ec;
 	--color-text-muted: #7a7a7a;
 	--color-text-contrast: #ffffff;
 
 	--color-accent: #b7afa4;
 	--color-accent-hover: #6e6a66;
-	--color-secondary: #B2622D;
+	--color-secondary: #b2622d;
 
 	--color-border: #ddd6cd;
 	--color-card: #ffffff;
 	--color-shadow: rgba(0, 0, 0, 0.04);
+
+	--animate-about-reveal: about-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+	@keyframes about-reveal {
+		from {
+			opacity: 0;
+			transform: translateY(35px);
+			filter: blur(6px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+			filter: blur(0);
+		}
+	}
 }
 
 .dark {
@@ -120,5 +144,55 @@ body {
 }
 
 a {
-	transition: text-shadow 0.3s ease, color 0.3s ease;
+	transition:
+		text-shadow 0.3s ease,
+		color 0.3s ease;
+}
+
+/* SCROLL REVEALS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(5px);
+    transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.reveal-delay-100 {
+    transition-delay: 100ms;
+}
+
+.reveal-delay-200 {
+    transition-delay: 200ms;
+}
+
+.reveal-delay-300 {
+    transition-delay: 300ms;
+}
+
+.reveal-delay-400 {
+    transition-delay: 400ms;
+}
+
+.reveal-delay-500 {
+    transition-delay: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
 }
