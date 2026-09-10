@@ -24,9 +24,6 @@ export const ServicesHero = () => {
 			>
 				design & code
 			</div>
-
-			<div className="pointer-events-none absolute left-[7%] top-0 h-full w-px bg-border" />
-
 			<div className="relative mx-auto max-w-325 px-6 pb-20 pt-24 md:px-10 md:pb-28 md:pt-36 lg:px-16">
 				<div className="grid gap-12 lg:grid-cols-12 lg:items-end">
 					<div className="lg:col-span-8">
