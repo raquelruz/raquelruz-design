@@ -2,7 +2,7 @@ import { AboutHero } from "../components/about/AboutHero";
 import { AboutStory } from "../components/about/AboutStory";
 import { AboutServices } from "../components/About/AboutServices";
 import { AboutTechStack } from "../components/About/AboutTechStack";
-import { JourneySection } from "../components/about/JourneySection";
+import { JourneySection } from "../components/About/JourneySection";
 import { PhilosophySection } from "../components/About/PhilosophySection";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 

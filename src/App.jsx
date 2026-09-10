@@ -7,7 +7,7 @@ import { ProjectsPage } from "./pages/ProjectsPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { BlogPage } from "./pages/BlogPage";
-import { ProjectDetail } from "./components/Projects/ProjectDetail";
+import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 
 export const App = () => {
 	return (
@@ -15,15 +15,13 @@ export const App = () => {
 			<Navbar />
 
 			<Routes>
-				<Route>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/services" element={<ServicesPage />} />
 					<Route path="/projects" element={<ProjectsPage />} />
-					<Route path="/projects/:slug" element={<ProjectDetail />} />
+					<Route path="/projects/:slug" element={<ProjectDetailPage />} />
 					<Route path="/about" element={<AboutPage />} />
 					<Route path="/contact" element={<ContactPage />} />
 					<Route path="/blog" element={<BlogPage />} />
-				</Route>
 			</Routes>
 		</>
 	);
