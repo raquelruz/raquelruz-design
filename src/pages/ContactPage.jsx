@@ -2,6 +2,7 @@ import { ContactHero } from "../components/contact/ContactHero";
 import { ContactInfo } from "../components/contact/ContactInfo";
 import { ContactForm } from "../components/contact/ContactForm";
 import { ContactDirect } from "../components/contact/ContactDirect";
+import { Footer } from "../components/Footer";
 
 export const ContactPage = () => {
     return (
@@ -10,6 +11,8 @@ export const ContactPage = () => {
             <ContactInfo />
             <ContactForm />
             <ContactDirect />
+
+            <Footer />
         </main>
     );
 };

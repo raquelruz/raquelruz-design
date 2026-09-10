@@ -1,7 +1,4 @@
-import { HiArrowUpRight } from "react-icons/hi2";
 import { useInView } from "../../hooks/useInView";
-
-const EMAIL = "raquelruizlopezcepero@gmail.com";
 
 export const ContactHero = () => {
     const [heroRef, isHeroVisible] = useInView({
@@ -23,7 +20,7 @@ export const ContactHero = () => {
     return (
         <section
             ref={heroRef}
-            className="relative overflow-hidden border-t border-border bg-background font-landing text-text"
+            className="relative overflow-hidden font-landing text-text"
         >
             <div className="pointer-events-none absolute left-[7%] top-0 h-full w-px bg-border" />
             <div className="relative mx-auto max-w-325 px-6 pb-20 pt-24 md:px-10 md:pb-28 md:pt-36 lg:px-16">

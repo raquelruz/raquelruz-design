@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi2";
-import { PROJECTS } from "../../utils/projectsData";
+import { PROJECTS } from "../../data/projectsData";
 import { useInView } from "../../hooks/useInView";
 
 export const ProjectDetailNextProject = ({ project }) => {

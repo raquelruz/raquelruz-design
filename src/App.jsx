@@ -6,7 +6,6 @@ import { ServicesPage } from "./pages/ServicesPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
-import { BlogPage } from "./pages/BlogPage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 
 export const App = () => {
@@ -15,13 +14,12 @@ export const App = () => {
 			<Navbar />
 
 			<Routes>
-					<Route path="/" element={<HomePage />} />
-					<Route path="/services" element={<ServicesPage />} />
-					<Route path="/projects" element={<ProjectsPage />} />
-					<Route path="/projects/:slug" element={<ProjectDetailPage />} />
-					<Route path="/about" element={<AboutPage />} />
-					<Route path="/contact" element={<ContactPage />} />
-					<Route path="/blog" element={<BlogPage />} />
+				<Route path="/" element={<HomePage />} />
+				<Route path="/services" element={<ServicesPage />} />
+				<Route path="/projects" element={<ProjectsPage />} />
+				<Route path="/projects/:slug" element={<ProjectDetailPage />} />
+				<Route path="/about" element={<AboutPage />} />
+				<Route path="/contact" element={<ContactPage />} />
 			</Routes>
 		</>
 	);

@@ -5,6 +5,7 @@ import { AboutTechStack } from "../components/About/AboutTechStack";
 import { JourneySection } from "../components/About/JourneySection";
 import { PhilosophySection } from "../components/About/PhilosophySection";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { Footer } from "../components/Footer";
 
 export const AboutPage = () => {
     const sectionRef = useScrollReveal();
@@ -25,6 +26,10 @@ export const AboutPage = () => {
             <JourneySection />
 
             <PhilosophySection />
+
+            <div>
+                <Footer />
+            </div>
         </main>
     );
 };

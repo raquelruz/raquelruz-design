@@ -1,53 +1,107 @@
 import { useEffect, useState } from "react";
 
-export const ImageCarousel = ({ images = [], alt = "", interval = 4000, className = "" }) => {
-	const [activeIndex, setActiveIndex] = useState(0);
+export const ImageCarousel = ({
+    images = [],
+    alt = "",
+    interval = 4000,
+    className = "",
+    onSlideChange,
+}) => {
+    const [activeIndex, setActiveIndex] = useState(0);
 
-	useEffect(() => {
-		if (images.length <= 1) return;
+    const hasMultipleImages = images.length > 1;
 
-		const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		if (prefersReducedMotion) return;
+    useEffect(() => {
+        if (images.length === 0) {
+            return;
+        }
 
-		const timer = setInterval(() => {
-			setActiveIndex((prev) => (prev + 1) % images.length);
-		}, interval);
+        if (activeIndex >= images.length) {
+            setActiveIndex(0);
+        }
+    }, [images.length, activeIndex]);
 
-		return () => clearInterval(timer);
-	}, [images.length, interval]);
+    useEffect(() => {
+        if (!hasMultipleImages) {
+            return;
+        }
 
-	if (images.length === 0) return null;
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-	return (
-		<div className={`relative overflow-hidden bg-background-soft ${className}`}>
-			{images.map((image, i) => (
-				<img
-					key={image}
-					src={image}
-					alt={`${alt} ${i + 1}`}
-					className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
-						i === activeIndex ? "opacity-100" : "opacity-0"
-					}`}
-				/>
-			))}
+        if (prefersReducedMotion) {
+            return;
+        }
 
-			{/* Imagen invisible para mantener el alto del contenedor */}
-			<img src={images[0]} alt="" className="invisible h-full w-full object-cover" aria-hidden="true" />
+        const timer = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % images.length);
+        }, interval);
 
-			{images.length > 1 && (
-				<div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-					{images.map((image, i) => (
-						<button
-							key={image}
-							onClick={() => setActiveIndex(i)}
-							aria-label={`Ver imagen ${i + 1}`}
-							className={`h-1.5 rounded-full transition-all ${
-								i === activeIndex ? "w-6 bg-white" : "w-1.5 bg-white/50"
-							}`}
-						/>
-					))}
-				</div>
-			)}
-		</div>
-	);
+        return () => clearInterval(timer);
+    }, [images.length, interval, hasMultipleImages]);
+
+    useEffect(() => {
+        if (onSlideChange) {
+            onSlideChange(activeIndex);
+        }
+    }, [activeIndex, onSlideChange]);
+
+    if (images.length === 0) {
+        return null;
+    }
+
+    const handleSelectImage = (index) => {
+        setActiveIndex(index);
+    };
+
+    return (
+        <div
+            className={`relative aspect-4/3 overflow-hidden bg-background-soft md:aspect-video ${className}`}
+        >
+            {images.map((image, index) => {
+                let imageOpacity = "opacity-0";
+
+                if (index === activeIndex) {
+                    imageOpacity = "opacity-100";
+                }
+
+                return (
+                    <img
+                        key={image}
+                        src={image}
+                        alt={`${alt} ${index + 1}`}
+                        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${imageOpacity}`}
+                        loading={index === 0 ? "eager" : "lazy"}
+                    />
+                );
+            })}
+
+            {hasMultipleImages && (
+                <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/35 px-4 py-2.5 shadow-sm backdrop-blur-md">
+                    {images.map((image, index) => {
+                        let indicatorClass =
+                            "h-2 w-2 bg-white/55 hover:bg-white/80";
+
+                        if (index === activeIndex) {
+                            indicatorClass = "h-2 w-8 bg-white";
+                        }
+
+                        return (
+                            <button
+                                key={image}
+                                type="button"
+                                onClick={() => handleSelectImage(index)}
+                                aria-label={`Ver imagen ${index + 1}`}
+                                aria-current={
+                                    index === activeIndex ? "true" : undefined
+                                }
+                                className={`rounded-full transition-all duration-500 ${indicatorClass}`}
+                            />
+                        );
+                    })}
+                </div>
+            )}
+        </div>
+    );
 };

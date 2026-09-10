@@ -2,10 +2,11 @@ import { useState } from "react";
 import { FaArrowDown, FaGithub } from "react-icons/fa6";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
-import { PROJECTS } from "../utils/projectsData";
-import { FeaturedProject } from "../components/Projects/FeaturedProject";
-import { ProjectListItem } from "../components/Projects/ProjectListItem";
+import { PROJECTS } from "../data/projectsData";
+import { FeaturedProject } from "../components/projects/FeaturedProject";
+import { ProjectListItem } from "../components/projects/ProjectListItem";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { Footer } from "../components/Footer";
 
 const FILTERS = [
 	{
@@ -66,8 +67,7 @@ export const ProjectsPage = () => {
 
 						<div data-reveal className="reveal reveal-delay-100">
 							<h1 className="font-title text-[clamp(5rem,11vw,10rem)] font-light leading-[0.78] tracking-[-0.055em]">
-								Lo que {" "}
-								<span className="ml-[10vw] italic text-secondary">construyo.</span>
+								Lo que <span className="ml-[10vw] italic text-secondary">construyo.</span>
 							</h1>
 						</div>
 					</div>
@@ -156,10 +156,7 @@ export const ProjectsPage = () => {
 
 				{otherProjects.length > 0 && (
 					<div>
-						<div
-							data-reveal
-							className="reveal mb-8 flex items-end justify-between border-b border-[#ded7ce] pb-5"
-						>
+						<div data-reveal className="reveal mb-8 flex items-end justify-between pb-5">
 							<div>
 								<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#8c8175]">
 									Colección
@@ -200,7 +197,7 @@ export const ProjectsPage = () => {
 				{showEmptyState && (
 					<div
 						data-reveal
-						className="reveal flex min-h-90 flex-col items-center justify-center border-y border-[#ded7ce] text-center"
+						className="reveal flex min-h-90 flex-col items-center justify-center border-[#ded7ce] text-center"
 					>
 						<span className="font-title text-5xl italic text-secondary">✦</span>
 
@@ -219,35 +216,56 @@ export const ProjectsPage = () => {
 				)}
 			</section>
 
-			<section className="border-t border-[#ded7ce] bg-[#302b27] text-[#f8f5f0]">
-				<div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-14">
-					<div data-reveal className="reveal grid gap-14 lg:grid-cols-[1fr_320px] lg:items-end">
-						<div>
-							<span className="font-mono text-[10px] uppercase tracking-[0.22em] text-secondary">
-								¿Tienes una idea?
+			<section className="border-t border-border bg-background-soft">
+				<div className="mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32 lg:px-14">
+					<div data-reveal className="reveal">
+						<div className="flex items-start justify-between gap-8">
+							<span className="text-[9px] font-medium uppercase tracking-[0.22em] text-text-muted">
+								— Contacto
 							</span>
 
-							<h2 className="mt-7 max-w-4xl font-title text-6xl font-light leading-[0.9] tracking-[-0.045em] md:text-8xl">
-								Vamos a hacerla
+							<span className="hidden text-[9px] uppercase tracking-[0.18em] text-text-muted md:block">
+								Disponible para nuevos proyectos
+							</span>
+						</div>
+
+						<div className="mt-20 md:mt-28">
+							<p className="text-[13px] leading-6 text-text-muted">
+								Una idea, una web que necesita una vuelta, un proyecto que todavía no sabe muy bien qué
+								quiere ser.
+							</p>
+
+							<h2 className="mt-8 max-w-5xl font-title text-6xl font-light leading-[0.86] tracking-[-0.055em] text-text md:text-8xl lg:text-9xl">
+								Podemos empezar
 								<br />
-								<span className="italic text-[#cfc5ba]">realidad.</span>
+								<span className="italic text-text-muted">por ahí.</span>
 							</h2>
 						</div>
 
-						<div>
-							<p className="text-sm leading-7 text-[#aaa198]">
-								Si buscas a alguien que combine desarrollo, diseño y ganas de seguir aprendiendo, me
-								encantará conocer tu proyecto.
-							</p>
+						<div className="mt-16 flex flex-col gap-8 border-t border-border pt-6 md:mt-24 md:flex-row md:items-end md:justify-between">
+							<div>
+								<p className="text-[9px] uppercase tracking-[0.2em] text-text-muted">¿Hablamos?</p>
+
+								<a
+									href="mailto:"
+									className="group mt-3 inline-flex items-center gap-3 font-title text-2xl font-light tracking-[-0.03em] text-text transition-colors duration-300 hover:text-secondary md:text-3xl"
+								>
+									Cuéntame qué tienes en mente
+									<HiArrowUpRight
+										size={18}
+										className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+									/>
+								</a>
+							</div>
 
 							<Link
 								to="/contact"
-								className="group mt-8 inline-flex items-center gap-4 border-b border-[#70675f] pb-3 text-xs uppercase tracking-[0.18em] transition-colors duration-300 hover:border-[#b2622d]"
+								className="group inline-flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] text-text-muted transition-colors duration-300 hover:text-text"
 							>
-								Hablemos
+								Ir a contacto
 								<HiArrowUpRight
-									size={12}
-									className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+									size={13}
+									className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
 								/>
 							</Link>
 						</div>
@@ -255,27 +273,7 @@ export const ProjectsPage = () => {
 				</div>
 			</section>
 
-			<footer className="bg-[#302b27]">
-				<div className="mx-auto flex max-w-7xl flex-col gap-6 border-t border-[#4a433e] px-6 py-8 md:flex-row md:items-center md:justify-between md:px-10 lg:px-14">
-					<p className="font-title text-xl italic text-[#aaa198]">Raquel Ruiz</p>
-
-					<div className="flex items-center gap-6">
-						<span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#716960]">
-							Full Stack Developer
-						</span>
-
-						<a
-							href="https://github.com/raquelruz"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="GitHub"
-							className="text-[#aaa198] transition-colors duration-300 hover:text-[#f8f5f0]"
-						>
-							<FaGithub size={16} />
-						</a>
-					</div>
-				</div>
-			</footer>
+			<Footer />
 		</main>
 	);
 };
