@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 import { PROJECTS } from "../utils/projectsData";
 
-import { ProjectDetailHero } from "../components/project-detail/ProjectDetailHero";
+import { ProjectDetailHero } from "../components/project-detail/ProjectDetailHero"
 import { ProjectDetailGallery } from "../components/project-detail/ProjectDetailGallery";
 import { ProjectDetailOverview } from "../components/project-detail/ProjectDetailOverview";
 import { ProjectDetailStory } from "../components/project-detail/ProjectDetailStory";
