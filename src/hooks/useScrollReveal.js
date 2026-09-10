@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useScrollReveal = () => {
+export const useScrollReveal = (dependencies = []) => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -16,6 +16,10 @@ export const useScrollReveal = () => {
             return;
         }
 
+        elements.forEach((element) => {
+            element.classList.remove("is-visible");
+        });
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -24,13 +28,12 @@ export const useScrollReveal = () => {
                     }
 
                     entry.target.classList.add("is-visible");
-
                     observer.unobserve(entry.target);
                 });
             },
             {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px",
+                threshold: 0.08,
+                rootMargin: "0px 0px -40px 0px",
             }
         );
 
@@ -41,7 +44,7 @@ export const useScrollReveal = () => {
         return () => {
             observer.disconnect();
         };
-    }, []);
+    }, dependencies);
 
     return sectionRef;
 };
