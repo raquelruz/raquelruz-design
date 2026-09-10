@@ -1,5 +1,13 @@
 import woodlineCover from "../assets/images/projects/woodline/woodline-responsive.png";
+import woodlineProducts from "../assets/images/projects/woodline/woodline-products.png";
+import woodlineCheckout from "../assets/images/projects/woodline/woodline-checkout.png";
+import woodlineCategories from "../assets/images/projects/woodline/woodline-categories.png";
 import nomadConnectCover from "../assets/images/projects/nomadconnect/nomadconnect-preview.png";
+import nomadConnectHero from "../assets/images/projects/nomadconnect/nomadconnect-hero.png";
+import nomadConnectSearch from "../assets/images/projects/nomadconnect/nomadconnect-search.png";
+import nomadConnectProfile from "../assets/images/projects/nomadconnect/nomadconnect-profile.png";
+import bookfixCover from "../assets/images/projects/bookfix/bookfix.png";
+import oficinaAR from "../assets/images/projects/oficina-ar/oficina-agente-rehab.png";
 
 export const PROJECTS = [
 	{
@@ -9,6 +17,7 @@ export const PROJECTS = [
 		year: 2026,
 		type: "development",
 		featuredHome: true,
+		showInGalery: true,
 
 		description:
 			"Aplicación full stack de planificación y comunidad de viajes: itinerarios, tareas, notificaciones y permisos de miembros. Actualmente en fase de pruebas cerradas con un grupo reducido de testers.",
@@ -43,7 +52,7 @@ export const PROJECTS = [
 
 		assets: {
 			coverImage: nomadConnectCover,
-			thumbnail: "/images/projects/nomadconnect/nomadconnect-preview.png",
+			gallery: [nomadConnectHero, nomadConnectSearch, nomadConnectProfile],
 		},
 	},
 
@@ -54,6 +63,7 @@ export const PROJECTS = [
 		year: 2025,
 		type: "practice",
 		featuredHome: true,
+		showInGalery: true,
 
 		description:
 			"Proyecto de práctica: diseño y desarrollo de una web corporativa para una marca ficticia de muebles de diseño en madera, con foco en estructura, coherencia visual y experiencia de usuario.",
@@ -88,7 +98,6 @@ export const PROJECTS = [
 
 		assets: {
 			coverImage: woodlineCover,
-			thumbnail: "/images/projects/woodline/thumbnail.png",
 		},
 	},
 
@@ -96,42 +105,46 @@ export const PROJECTS = [
 		id: "uniforme-azul",
 		title: "Uniforme Azul",
 		subtitle: "Plataforma de preparación de oposiciones",
-		year: 2023,
+		year: 2024,
 		type: "development",
-		featuredHome: true,
+		featuredHome: false,
+		showInGalery: false,
 
 		description:
-			"Desarrollo full stack de Uniforme Azul, una plataforma orientada a la preparación de personas opositoras para el acceso a la Policía Nacional, como parte de mi trabajo en Rocket418.",
+			"Desarrollo de una plataforma web completa para la preparación de oposiciones al acceso a la Policía Nacional, trabajando principalmente en el frontend con React y TypeScript y colaborando en la integración con un backend desarrollado con Node.js, Express.js y MongoDB. El proyecto combinaba una interfaz orientada al estudio con una arquitectura preparada para gestionar contenido, usuarios y diferentes funcionalidades de la plataforma.",
 
 		story: [
-			"Como Full Stack Developer en Rocket418, participé en el desarrollo de Uniforme Azul, una plataforma de preparación de oposiciones para el acceso a la Policía Nacional, construida con React, Node.js y TypeScript.",
-			"Me encargué principalmentedel frontend — interfaces con React, JavaScript, HTML y CSS — y colaboré con el equipo de backend, con Express.js y MongoDB, incluyendo la integración de APIs REST.",
-			"Trabajé dentro de un flujo colaborativo con Git y GitHub, siguiendo metodologías ágiles, y participé en integración continua, testing y despliegues (CI/CD).",
+			"Uniforme Azul fue uno de los proyectos principales en los que trabajé como Full Stack Developer en Rocket418. Se trataba de una plataforma digital enfocada en la preparación de oposiciones para el acceso a la Policía Nacional, con una aplicación web utilizada por personas que necesitaban organizar y consultar su contenido de estudio de forma online.",
+
+			"Mi trabajo estuvo especialmente centrado en el desarrollo frontend, utilizando React, JavaScript, TypeScript, HTML y CSS para construir y mantener diferentes interfaces de la plataforma. También trabajé en la integración con APIs REST y en la comunicación entre frontend y backend, colaborando con las partes desarrolladas con Node.js, Express.js y MongoDB.",
+
+			"Además del desarrollo de funcionalidades, participé en un flujo de trabajo colaborativo utilizando Git y GitHub, siguiendo una metodología ágil y trabajando con ramas, revisiones e integración continua. También tuve contacto con procesos de testing, CI/CD y despliegue, adquiriendo experiencia en el ciclo completo de desarrollo de una aplicación web en producción.",
 		],
+
+		objective:
+			"Participar en el desarrollo y evolución de una plataforma web real, trabajando principalmente en frontend y colaborando en las distintas capas del producto para adquirir experiencia en desarrollo full stack, integración de APIs, trabajo colaborativo y despliegue.",
 
 		services: ["Desarrollo Web", "Desarrollo Full Stack"],
 
-		techStack: ["React", "TypeScript", "Node.js", "Express.js", "MongoDB"],
+		techStack: ["React", "TypeScript", "JavaScript", "Node.js", "Express.js", "MongoDB"],
 
 		keyFeatures: [
-			"Interfaces frontend con React, JavaScript, HTML y CSS",
-			"Backend con Express.js y MongoDB",
-			"Diseño e integración de APIs REST",
-			"CI/CD, testing y despliegues",
+			"Desarrollo de interfaces con React y TypeScript",
+			"Integración y consumo de APIs REST",
+			"Comunicación entre frontend y backend",
+			"Trabajo con Node.js, Express.js y MongoDB",
+			"Testing, CI/CD y despliegues",
 		],
 
 		role: "Full Stack Developer — Rocket418",
 
-		result: "Plataforma en producción.",
+		result: "Plataforma real en producción, desarrollada dentro de un entorno profesional y utilizada como herramienta de preparación para oposiciones.",
 
 		externalLink: "https://uniformeazul.com/",
 
 		slug: "uniforme-azul",
 
-		assets: {
-			coverImage: "/images/projects/uniforme-azul/cover.png",
-			thumbnail: "/images/projects/uniforme-azul/thumbnail.png",
-		},
+		assets: {},
 	},
 
 	{
@@ -141,6 +154,7 @@ export const PROJECTS = [
 		year: "2021 ─ 2023",
 		type: "design",
 		featuredHome: false,
+		showInGalery: false,
 
 		description:
 			"Web y redes sociales de Rotuwear creada desde cero: diseño, arquitectura y desarrollo completos en WordPress, incluyendo el sistema de pago con Stripe. Estrategia completa en redes sociales. Imágenes de branding personalizadas.",
@@ -161,9 +175,52 @@ export const PROJECTS = [
 
 		slug: "rotuwear",
 
+		assets: {},
+	},
+
+	{
+		id: "bookfix",
+		title: "Bookfix",
+		subtitle: "Biblioteca digital (práctica)",
+		year: 2023,
+		type: "practice",
+		featuredHome: false,
+		showInGalery: true,
+
+		description:
+			"Proyecto de práctica desarrollado con JavaScript para crear una biblioteca digital interactiva conectada a la API de Google Books, con búsqueda, filtros y gestión de una biblioteca personal.",
+
+		story: [
+			"Bookfix fue uno de mis primeros proyectos de práctica con JavaScript, desarrollado antes de comenzar a trabajar con React. El objetivo era construir una experiencia de biblioteca digital funcional utilizando JavaScript vanilla.",
+			"La aplicación se conecta con la API de Google Books para buscar y explorar libros, mostrando información dinámica según las búsquedas y categorías seleccionadas.",
+			"Además, incorpora una biblioteca personal con favoritos y libros leídos, permitiendo trabajar diferentes interacciones y estados de la interfaz sin utilizar frameworks.",
+		],
+
+		objective:
+			"Practicar JavaScript construyendo una aplicación interactiva conectada a una API externa, trabajando con datos, búsquedas, filtros, eventos y actualización dinámica de la interfaz.",
+
+		services: ["UI / UX Design", "Desarrollo Web"],
+
+		techStack: ["JavaScript", "Google Books API", "HTML", "CSS"],
+
+		keyFeatures: [
+			"Búsqueda de libros mediante Google Books API",
+			"Filtros y búsqueda avanzada",
+			"Sistema de favoritos y libros leídos",
+			"Biblioteca personal interactiva",
+		],
+
+		role: "Diseño y desarrollo",
+
+		result: "Demo funcional desarrollada con JavaScript vanilla e integrada con Google Books API, como proyecto previo al aprendizaje de React.",
+
+		externalLink: "https://bookfix.netlify.app/",
+
+		slug: "bookfix",
+
 		assets: {
-			coverImage: "/images/projects/rotuwear/cover.png",
-			thumbnail: "/images/projects/rotuwear/thumbnail.png",
+			coverImage: bookfixCover,
+			thumbnail: "/images/projects/bookfix/thumbnail.png",
 		},
 	},
 
@@ -174,6 +231,7 @@ export const PROJECTS = [
 		year: 2023,
 		type: "design",
 		featuredHome: false,
+		showInGalery: true,
 
 		description:
 			"Web corporativa para Oficina Agente Rehabilitador, empresa especializada en la gestión integral de proyectos de rehabilitación de edificios con fondos europeos. Diseño y desarrollo completos en WordPress, incluyendo formularios de captación de leads para comunidades de propietarios.",
@@ -196,8 +254,8 @@ export const PROJECTS = [
 		slug: "oficina-agente-rehabilitador",
 
 		assets: {
-			coverImage: "/images/projects/oficina-agente-rehabilitador/cover.png",
-			thumbnail: "/images/projects/oficina-agente-rehabilitador/thumbnail.png",
+			coverImage: oficinaAR,
+			thumbnail: "/images/projects/bookfix/thumbnail.png",
 		},
 	},
 ];

@@ -1,5 +1,4 @@
-import { SERVICES } from "../../utils/servicesData";
-
+import { SERVICES } from "../../data/servicesData";
 import { useInView } from "../../hooks/useInView";
 
 export const ServicesList = () => {
