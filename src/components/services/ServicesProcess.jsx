@@ -41,8 +41,6 @@ export const ServicesProcess = () => {
 			ref={processRef}
 			className="relative overflow-hidden border-t border-border bg-background font-landing text-text"
 		>
-			<div className="pointer-events-none absolute left-[7%] top-0 h-full w-px bg-border" />
-
 			<div className="relative mx-auto max-w-325 px-6 py-24 md:px-10 md:py-32 lg:px-16">
 				<div className="grid gap-16 md:grid-cols-12 md:gap-8">
 					<div className="md:col-span-4">
