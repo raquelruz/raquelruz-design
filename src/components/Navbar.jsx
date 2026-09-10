@@ -44,11 +44,8 @@ export const Navbar = ({
             className={`relative z-50 flex w-full justify-center px-4 pt-5 font-landing ${className}`}
         >
             <div className="relative w-full max-w-5xl">
+                <div className="flex min-h-16 items-center justify-between gap-4 rounded-full bg-background px-4 py-2 shadow-lg md:px-6">
 
-                {/* NAVBAR */}
-                <div className="flex min-h-[64px] items-center justify-between gap-4 rounded-full bg-background px-4 py-2 shadow-lg md:px-6">
-
-                    {/* LEFT LINKS */}
                     <div className="hidden flex-1 items-center justify-end gap-2 md:flex">
                         {leftLinks.map((link) => {
                             const isActive =
@@ -76,7 +73,6 @@ export const Navbar = ({
                         })}
                     </div>
 
-                    {/* LOGO */}
                     <Link
                         to="/"
                         onClick={closeMobileMenu}
@@ -91,7 +87,6 @@ export const Navbar = ({
                         </span>
                     </Link>
 
-                    {/* RIGHT LINKS */}
                     <div className="hidden flex-1 items-center justify-start gap-2 md:flex">
                         {rightLinks.map((link) => {
                             const isActive =
@@ -119,7 +114,6 @@ export const Navbar = ({
                         })}
                     </div>
 
-                    {/* MOBILE BUTTON */}
                     <button
                         type="button"
                         onClick={toggleMobileMenu}
@@ -147,9 +141,8 @@ export const Navbar = ({
                     </button>
                 </div>
 
-                {/* MOBILE MENU */}
                 {isMobileMenuOpen && (
-                    <div className="absolute left-0 right-0 top-[76px] rounded-3xl bg-background p-4 shadow-xl md:hidden">
+                    <div className="absolute left-0 right-0 top-19 rounded-3xl bg-background p-4 shadow-xl md:hidden">
                         <div className="flex flex-col gap-1">
                             {links.map((link) => {
                                 const isActive =
