@@ -161,7 +161,6 @@ export const TechStackSection = () => {
                 }
             `}</style>
 
-			<div className="pointer-events-none absolute left-[7%] top-0 h-full w-px bg-border" />
 			<div className="relative mx-auto max-w-325 px-6 py-24 md:px-10 md:py-32 lg:px-16">
 				<div className={`transition-all duration-1000 ease-out ${reveal}`}>
 					<div className="mt-10 grid gap-12 md:mt-14  md:items-end md:gap-8">

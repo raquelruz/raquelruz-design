@@ -69,8 +69,7 @@ export const ServicesSection = () => {
 				<div className="mb-10 flex flex-col gap-6 px-4 md:mb-14 md:flex-row md:items-end md:justify-between">
 					<div className=" md:px-10 lg:px-30">
 						<h2 className="font-title text-5xl font-light leading-[0.9] tracking-[-0.055em] md:text-7xl">
-							Diseño, código y todo lo que hay
-							<br />
+							Diseño, código y todo lo que hay {" "}
 							<span className="text-secondary">entre medias.</span>
 						</h2>
 					</div>

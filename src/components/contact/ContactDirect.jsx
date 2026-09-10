@@ -29,8 +29,6 @@ export const ContactDirect = () => {
 				<div className="absolute left-1/2 top-1/2 h-50 w-50 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/6 blur-3xl transition-transform duration-1500 group-hover:scale-150" />
 			</div>
 
-			<div className="pointer-events-none absolute left-[7%] top-0 h-full w-px bg-white/6" />
-
 			<div className="relative mx-auto max-w-325 px-6 py-28 md:px-10 md:py-40 lg:px-16">
 				<div className="mt-20 md:mt-28">
 					<p
