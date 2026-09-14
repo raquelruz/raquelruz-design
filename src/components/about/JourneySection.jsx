@@ -44,7 +44,7 @@ export const JourneySection = () => {
 
 					<div data-reveal className="reveal reveal-delay-100">
 						<h2 className="text-[clamp(3.5rem,7vw,7rem)] font-light leading-[0.9] tracking-[-0.055em] text-[#292725]">
-							De la <span className="italic text-[#B2622D]">creatividad</span> al código.
+							De la <span className="text-[#B2622D]">creatividad</span> al código.
 						</h2>
 
 						<p className="mt-8 text-base leading-relaxed text-[#6f6b67] md:text-lg">
@@ -115,7 +115,7 @@ export const JourneySection = () => {
 				>
 					<p className="text-2xl font-light leading-relaxed tracking-[-0.02em] text-[#292725] md:text-3xl">
 						Cada etapa me ha dado una perspectiva diferente sobre cómo{" "}
-						<span className="italic text-[#B2622D]">crear mejores productos.</span>
+						<span className="text-[#B2622D]">crear mejores productos.</span>
 					</p>
 
 					<span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#99938c]">2019 — 2026</span>

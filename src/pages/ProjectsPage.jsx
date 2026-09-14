@@ -238,7 +238,7 @@ export const ProjectsPage = () => {
 							<h2 className="mt-8 max-w-5xl font-title text-6xl font-light leading-[0.86] tracking-[-0.055em] text-text md:text-8xl lg:text-9xl">
 								Podemos empezar
 								<br />
-								<span className="italic text-text-muted">por ahí.</span>
+								<span className="italic text-secondary">por ahí.</span>
 							</h2>
 						</div>
 

@@ -75,64 +75,6 @@ export const ContactSection = () => {
 							</Link>
 						</div>
 					</div>
-
-					<div className="grid gap-12 border-t border-background/15 pt-8 md:grid-cols-3 md:gap-8">
-						<div>
-							<span className="mb-4 block text-[9px] uppercase tracking-[0.25em] text-background/30">
-								Sobre mi trabajo
-							</span>
-
-							<p className="text-sm leading-relaxed text-background/55">
-								Diseño y desarrollo experiencias digitales donde la estética, la funcionalidad y el
-								código trabajan juntos.
-							</p>
-						</div>
-
-						<div>
-							<span className="mb-4 block text-[12px] uppercase tracking-[0.25em] text-background/30">
-								Escríbeme
-							</span>
-
-							<a
-								href="mailto:raquelruizlopezcepero@gmail.com"
-								className="group/email relative inline-block text-sm text-background/75 transition-colors hover:text-background"
-							>
-								raquelruizlopezcepero@gmail.com
-								<span className="absolute -bottom-1 left-0 h-px w-0 bg-background transition-all duration-500 group-hover/email:w-full" />
-							</a>
-						</div>
-
-						<div className="md:justify-self-end">
-							<span className="mb-4 block text-[12px] uppercase tracking-[0.25em] text-background/30">
-								Encuéntrame
-							</span>
-
-							<div className="flex flex-wrap items-center gap-5">
-								{socialLinks.map(({ label, href, icon: Icon }) => (
-									<a
-										key={label}
-										href={href}
-										target="_blank"
-										rel="noreferrer"
-										aria-label={label}
-										className="group/social flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-background/55 transition-colors hover:text-background"
-									>
-										<Icon
-											size={14}
-											className="transition-transform duration-300 group-hover/social:-translate-y-0.5"
-										/>
-
-										<span>{label}</span>
-
-										<HiArrowUpRight
-											size={11}
-											className="transition-transform duration-300 group-hover/social:translate-x-0.5 group-hover/social:-translate-y-0.5"
-										/>
-									</a>
-								))}
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
