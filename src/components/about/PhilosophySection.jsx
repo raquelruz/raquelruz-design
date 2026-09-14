@@ -30,12 +30,12 @@ export const PhilosophySection = () => {
 
                     <blockquote className="mt-4 max-w-6xl text-[clamp(3rem,7vw,7rem)] font-light leading-[0.9] tracking-[-0.055em] text-white">
                         El código hace que una idea{" "}
-                        <span className="italic text-[#B2622D]">
+                        <span className="text-[#B2622D]">
                             funcione.
                         </span>
                         <br />
                         El diseño hace que quieras{" "}
-                        <span className="italic text-[#B2622D]">
+                        <span className="text-[#B2622D]">
                             utilizarla.
                         </span>
                     </blockquote>
@@ -70,19 +70,6 @@ export const PhilosophySection = () => {
                             </span>
                         </Link>
                     </div>
-                </div>
-
-                <div
-                    data-reveal
-                    className="reveal reveal-delay-300 mt-24 flex items-center justify-between border-t border-white/10 pt-5"
-                >
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
-                        Raquel Ruiz
-                    </span>
-
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/20">
-                        Full Stack Developer
-                    </span>
                 </div>
             </div>
         </section>
