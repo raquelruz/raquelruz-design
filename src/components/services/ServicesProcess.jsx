@@ -56,7 +56,7 @@ export const ServicesProcess = () => {
 							</div>
 
 							<h2 className="mt-8 font-title text-5xl font-light leading-[0.88] tracking-[-0.05em] md:text-6xl">
-								Una forma de trabajar.
+								Mi forma de trabajar.
 							</h2>
 
 							<p className="mt-7 text-sm leading-7 text-text-muted md:text-base">
