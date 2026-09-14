@@ -70,8 +70,6 @@ export const ContactDirect = () => {
 						</div>
 					</div>
 				</a>
-
-				<div className={`mt-16 h-px origin-left bg-white/8 transition-transform duration-1400 ${lineReveal}`} />
 			</div>
 		</section>
 	);
