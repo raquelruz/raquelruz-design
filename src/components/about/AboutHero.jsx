@@ -69,7 +69,7 @@ export const AboutHero = () => {
 								</span>
 
 								<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">
-									Open to work
+									Disponible para nuevos proyectos
 								</span>
 							</div>
 

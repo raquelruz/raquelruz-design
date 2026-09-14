@@ -28,7 +28,7 @@ export const ServicesHero = () => {
 				<div className="grid gap-12 lg:grid-cols-12 lg:items-end">
 					<div className="lg:col-span-8">
 						<h1
-							className={`mt-8 max-w-5xl font-title text-6xl font-light leading-[0.86] tracking-[-0.06em] transition-all duration-1100 ease-out md:text-8xl lg:text-[9rem] ${titleReveal}`}
+							className={`mt-8 font-title text-6xl font-light leading-[0.86] tracking-[-0.06em] transition-all duration-1100 ease-out md:text-8xl lg:text-[9rem] ${titleReveal}`}
 						>
 							Diseño y
 							<br />
