@@ -9,8 +9,8 @@ export const Navbar = ({
         { name: "Sobre mí", href: "/about" },
         { name: "Contacto", href: "/contact" },
     ],
-    logoText = "RaquelRuz Design",
-    logoIcon = "RRD",
+    logoText = "Raquel Ruiz",
+    logoIcon = "RR",
     onLinkClick,
     className = "",
 }) => {
@@ -43,7 +43,7 @@ export const Navbar = ({
         <nav
             className={`relative z-50 flex w-full justify-center px-4 pt-5 font-landing ${className}`}
         >
-            <div className="relative w-full max-w-5xl">
+            <div className="relative max-w-4xl">
                 <div className="flex min-h-16 items-center justify-between gap-4 rounded-full bg-background px-4 py-2 shadow-lg md:px-6">
 
                     <div className="hidden flex-1 items-center justify-end gap-2 md:flex">
